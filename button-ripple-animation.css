@@ -1,0 +1,79 @@
+	
+  .btn_effect {
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+      /* border: 0 !important; */
+      min-width: 64px;
+      vertical-align: middle;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      overflow: hidden;
+      outline: none;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+  }
+  .btn_effect::-moz-focus-inner{
+      border: none;
+  }
+  /* Overlay */
+  .btn_effect::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(255, 255, 255);
+      opacity: 0;
+      transition: opacity 0.2s;
+  }
+  /* Ripple */
+  .btn_effect::after,{
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      padding: 50%;
+      width: 32px; /* Safari */
+      height: 32px; /* Safari */
+      background-color: rgb(255, 255, 255);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1);
+      transition: opacity 1s, transform 0.5s;
+  }
+  /* Hover, Focus */
+  .btn_effect:hover,
+  .btn_effect:focus {
+      color:#fff;
+  }
+  .btn_effect:hover::before{
+      opacity: 0;
+  }
+  .btn_effect:focus::before {
+      opacity: 0.3;
+  }
+  .btn_effect:hover:focus::before {
+      opacity: 0.5;
+  }
+ 
+  .btn_effect:active::after{
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0s;
+  }
+  .btn_effect:after
+{    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    padding: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 1s, transform 0.5s;
+}
